@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <head>
     <link href="/angular.json" rel="stylesheet" />
     <style>
         body {
-            background-color: #fcfcf4d6;
+            background-color: #fff;
             display: flex;
             justify-content: center;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', 'Medium 500';
         }
         h1 {
             text-align: center;
@@ -28,22 +31,25 @@
         }
         .btn-primary {
             font-size: 30px;
-            font-family: 'Times New Roman', Times, serif;
+            font-family: 'Poppins';
         }
 
     </style>
 </head>
 <body>
     <header>
-        <img src="/assets/event_management_app.jpg" width="100%">
- 
+        <!-- <img src="/assets/event_management_app.jpg" width="100%"> -->
+        
+        <a routerLink="/add-category" style="margin-right: 10px;">Add Category</a> 
+        <a routerLink="/list-categories" style="margin-right: 10px;">List Category</a>
+        <a routerLink="/delete-categories" style="margin-right: 10px;">Delete Category</a> 
+        <a routerLink="/update-category" style="margin-right: 10px;">Update Category</a>
+        <button class="btn btn-link"(click)="toLogIn() ">Log In</button> 
+        <button class="btn btn-link"(click)="toSignUp()">Sign Up</button> 
+         <router-outlet></router-outlet>
         <div class="container">
             <div class="btn-primary">
-                <a routerLink="/add-category" style="margin-right: 10px;">Add Category</a> 
-                <a routerLink="/list-categories" style="margin-right: 10px;">List Category</a>
-                <a routerLink="/delete-categories" style="margin-right: 10px;">Delete Category</a> 
-                <a routerLink="/update-category" style="margin-right: 10px;">Update Category</a> 
-                <router-outlet></router-outlet>  
+                  
             </div>
         </div>
 

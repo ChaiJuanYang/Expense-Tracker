@@ -15,6 +15,8 @@ import { ListEventCapsPipe } from './pipes/list-event-caps.pipe';
 import { DisplayCategoryComponent } from './components/display-category/display-category.component';
 import { InvalidDataComponent } from './components/invalid-data/invalid-data.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 const routes: Routes = [
   {path :"add-category", component: AddCategoryComponent},
@@ -23,8 +25,11 @@ const routes: Routes = [
   {path :"update-category", component: UpdateCategoryComponent},
   {path :"display-category/:categoryId", component: DisplayCategoryComponent},
   {path :"invalid-data", component: InvalidDataComponent},
+  {path :"signin", component: SigninComponent},
+  {path :"signup", component: SignupComponent},
   {path: "", redirectTo: "/list-categories", pathMatch: "full" },
   {path :"**", component: PageNotFoundComponent},
+  
   ]
 
 @NgModule({
@@ -38,7 +43,9 @@ const routes: Routes = [
     UpdateCategoryComponent,
     ListEventCapsPipe,
     DisplayCategoryComponent,
-    InvalidDataComponent
+    InvalidDataComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes, { useHash: true }), HttpClientModule, FormsModule, ServiceWorkerModule.register('ngsw-worker.js', {

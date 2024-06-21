@@ -1,0 +1,35 @@
+body {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin: 0;
+    font-family: 'Poppins', 'Medium 500';
+}
+h1 {
+    text-align: left;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input[type="password"], 
+input[type="email"], 
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+.actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+.sign-up {
+    text-align: center;
+    margin-top: 10px;
+}

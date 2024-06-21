@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { io } from 'socket.io-client';
 
 @Component({
@@ -7,10 +8,18 @@ import { io } from 'socket.io-client';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+
   title = 'expense-tracker';
   socket : any;
 
-  constructor(){
+  constructor(private router : Router){
     this.socket = io();
+  }
+  toLogIn() {
+    this.router.navigate(['/signin']);
+  }
+  toSignUp() {
+    this.router.navigate(['/signup']);
   }
 }
