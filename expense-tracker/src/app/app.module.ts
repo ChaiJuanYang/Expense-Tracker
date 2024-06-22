@@ -18,18 +18,18 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 
-const routes: Routes = [
+const routes: Routes = [  
+  {path :"signin", component: SigninComponent},
+  {path :"signup", component: SignupComponent},
   {path :"add-category", component: AddCategoryComponent},
   {path :"list-categories", component: ListCategoriesComponent},
   {path :"delete-categories", component: DeleteCategoriesComponent},
   {path :"update-category", component: UpdateCategoryComponent},
   {path :"display-category/:categoryId", component: DisplayCategoryComponent},
   {path :"invalid-data", component: InvalidDataComponent},
-  {path :"signin", component: SigninComponent},
-  {path :"signup", component: SignupComponent},
   {path: "", redirectTo: "/list-categories", pathMatch: "full" },
   {path :"**", component: PageNotFoundComponent},
-  
+
   ]
 
 @NgModule({

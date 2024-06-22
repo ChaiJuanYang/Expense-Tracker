@@ -1,1 +1,18 @@
-<p>signup works!</p>
+<h1>Create your {{title}} account</h1>
+<body>
+    <div class="container">
+        <form>
+            <h2>Sign Up</h2>
+            <input type="text" [(ngModel)]="name" name="name" placeholder="Name">
+            <input type="email" [(ngModel)]="email" name="email" placeholder="Email">
+            <input type="password" [(ngModel)]="password" name="password" placeholder="Password">
+            <input type="password" [(ngModel)]="repeatpassword" name="repeatpassword" placeholder="Repeat Password">
+            <select [(ngModel)]="gender" name="Gender">
+                <option value="" disabled selected>Select your gender</option>
+                <option *ngFor="let gender of genders" [value]="gender">{{ gender }}</option> 
+            </select>
+            <input type="text" [(ngModel)]="contactNumber" name="contactNumber" placeholder="Contact Number">
+            <button type="button" (click)="newSignUp()">Sign Up</button>
+        </form>
+    </div>
+</body>
