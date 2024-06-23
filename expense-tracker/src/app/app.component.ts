@@ -14,7 +14,7 @@ export class AppComponent {
   socket : any;
 
   constructor(private router : Router){
-    this.socket = io();
+    // this.socket = io();
   }
   toLogIn() {
     this.router.navigate(['/signin']);

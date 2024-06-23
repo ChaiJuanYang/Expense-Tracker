@@ -27,9 +27,9 @@ export class SignupComponent {
       contactNumber : this.contactNumber
   };
   console.log(userObj);
-  // this.dbService.addUser(userObj).subscribe({
-  //   next: (result) => {this.router.navigate(['/signin'])},
-  //   error: (error) => {console.log(error)}
-  // })
+  this.dbService.addUsers(userObj).subscribe({
+    next: (result) => {this.router.navigate(['/signin'])},
+    error: (error) => {console.log(error)}
+  })
 }
 }

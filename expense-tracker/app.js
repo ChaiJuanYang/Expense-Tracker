@@ -12,7 +12,8 @@ const Operation = require("./backend/models/operation")
 const Category = require("./backend/models/event-category");
 const operation = require("./backend/models/operation");
 const stats = require("./backend/controllers/stats");
-
+const userCont = require("./backend/controllers/user-controller");
+const jwt = require("jsonwebtoken");
 app.use(express.static(path.join(__dirname,"dist/ema_angular")));
 app.use(express.static('public'));
 const PORT_NUMBER = 8081;
@@ -30,19 +31,19 @@ app.use(express.json());
 async function connect() {
   try {
     await mongoose.connect(url);
-    let existingOperation = await Operation.findOne();
-    const categoryCount = await Category.countDocuments();
+    // let existingOperation = await Operation.findOne();
+    // const categoryCount = await Category.countDocuments();
   
-    let newOperation = await Operation.findOneAndUpdate(
-      {},
-      { category_size: categoryCount },
-      { new: true }
-    );
-    console.log(newOperation);
-    if (!existingOperation) {
-      const operation = new Operation();
-      await operation.save();
-  }
+    // let newOperation = await Operation.findOneAndUpdate(
+      // {},
+      // { category_size: categoryCount },
+      // { new: true }
+    // );
+    // console.log(newOperation);
+    // if (!existingOperation) {
+      // const operation = new Operation();
+      // await operation.save();
+  // }
     server.listen(PORT_NUMBER, () => {
       console.log(`Server listening on port ${PORT_NUMBER}`);
     });
@@ -51,12 +52,12 @@ async function connect() {
     console.log(err);
   }
 }
-const filePath = 'public/output.mp3';
-io.on('connection', (socket) => {
-  console.log(`Client connected: ${socket.id}`);
-});
-connect();
+// const filePath = 'public/output.mp3';
 
+
+app.post("/signup", userCont.createUser);
+
+app.post("/signin", userCont.loginUser);
 
 app.post("/add-category", categoryCont.createCategory);
 
@@ -69,3 +70,8 @@ app.put("/update-category", categoryCont.updateCategorybyId);
 app.get("/display-category/:categoryId", categoryCont.getCategoryDisplay);
 
 app.get("/stats-g1", stats.getOneOperation);
+
+io.on('connection', (socket) => {
+  console.log(`Client connected: ${socket.id}`);
+});
+connect();

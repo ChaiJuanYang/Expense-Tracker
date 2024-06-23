@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
-
+import { HttpClient, HttpErrorResponse, HttpHandler, HttpHeaders } from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
 const httpOptions = {
   headers : new HttpHeaders({"Content-Type" : "application/json"}),
 };
@@ -9,8 +9,25 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DatabaseService {
+  private token : string = "";
 
+  getToken(){
+    return this.token;
+  }
   constructor(private http: HttpClient) { }
+
+  addUsers(aUser: any){
+    return this.http.post("/signup", aUser, httpOptions);
+  }
+
+  loginUsers(email: any, password: any){
+    const authData = {email: email, password: password}
+    return this.http.post<{token:string}>("/signin",authData , httpOptions)
+    .subscribe(res => {
+        this.token = res.token;
+        console.log(this.token);
+    })
+  }
 
   addCategory(aCategory: any){
     return this.http.post("/add-category", aCategory, httpOptions)

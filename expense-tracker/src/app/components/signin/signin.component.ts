@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DatabaseService } from 'src/app/database.service';
 
 @Component({
   selector: 'app-signin',
@@ -7,14 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
-  email : string = "";
-  password : string = "";
-  constructor(private router : Router) { }
+  email: string = "";
+  password: string = "";
+
+  constructor(private router: Router, private dbService: DatabaseService) {}
+
   onSignIn() {
-  throw new Error('Method not implemented.');
+    this.dbService.loginUsers(this.email, this.password);
+    console.log("Logged in")
   }
+
   newSignUp() {
     this.router.navigate(['/signup']);
   }
-
 }
