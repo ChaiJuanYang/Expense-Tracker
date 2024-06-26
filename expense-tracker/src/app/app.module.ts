@@ -1,6 +1,6 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { DeleteCategoriesComponent } from './components/delete-categories/delete-categories.component';
@@ -55,7 +55,7 @@ const routes: Routes = [
   registrationStrategy: 'registerWhenStable:30000'
 })],
     
-  providers: [DatabaseService],
+  providers: [DatabaseService, {provide: HTTP_INTERCEPTORS, useClass: DatabaseService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

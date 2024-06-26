@@ -21,7 +21,7 @@ textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 10px;
     margin-bottom: 20px;
 }
 .actions {
@@ -32,4 +32,15 @@ textarea {
 .sign-up {
     text-align: center;
     margin-top: 10px;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    border: 0px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #cdcdcd;
 }

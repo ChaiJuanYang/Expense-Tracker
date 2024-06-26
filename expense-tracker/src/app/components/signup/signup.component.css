@@ -35,16 +35,11 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     outline: none;
 }
 button {
-    font-size: 18px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    padding: 10px 20px;
-    border: none;
-    background-color: #dadada;
-    color: black;
+    width: 100%;
+    padding: 10px;
+    border: 0px solid #ccc;
     border-radius: 10px;
-    cursor: pointer;
-    height: 50px;
+    margin-bottom: 20px;
 }
 button:hover {
     background-color: #cdcdcd;
@@ -65,3 +60,12 @@ select:focus {
 select option[disabled]:first-child {
     color: #ccc;
 }
+.sign-in {
+    text-align: center;
+    margin-top: 10px;
+}
+.error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  

@@ -9,7 +9,7 @@ module.exports = {
             // Check if user already exists
             const existingUser = await User.findOne({ email: req.body.email });
             if (existingUser) {
-                return res.status(400).json({ message: "Email already exists" });
+                return res.status(400).json({ message: "Email address is already in use." });
             }
 
             // Hash the password

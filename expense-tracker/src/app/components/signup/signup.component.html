@@ -12,5 +12,11 @@
         </select>
         <input type="text" [(ngModel)]="contactNumber" name="contactNumber" placeholder="Contact Number">
         <button type="button" (click)="newSignUp()">Sign Up</button>
+        <br>
+        <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+         </div>
+        <span>Already have an account?</span>
+        <button type="button" (click)="toSignIn()">Sign In</button>
     </form>
 </div>
