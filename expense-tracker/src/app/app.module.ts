@@ -17,10 +17,16 @@ import { InvalidDataComponent } from './components/invalid-data/invalid-data.com
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { DatabaseInterceptor } from './database-interceptor';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { UserComponent } from './components/user/user.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const routes: Routes = [  
   {path :"signin", component: SigninComponent},
   {path :"signup", component: SignupComponent},
+  {path :"dashboard", component: DashboardComponent},
+  {path :"user", component: UserComponent},
   {path :"add-category", component: AddCategoryComponent},
   {path :"list-categories", component: ListCategoriesComponent},
   {path :"delete-categories", component: DeleteCategoriesComponent},
@@ -45,7 +51,10 @@ const routes: Routes = [
     DisplayCategoryComponent,
     InvalidDataComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    UserComponent,
+    DashboardComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes, { useHash: true }), HttpClientModule, FormsModule, ServiceWorkerModule.register('ngsw-worker.js', {
@@ -55,7 +64,7 @@ const routes: Routes = [
   registrationStrategy: 'registerWhenStable:30000'
 })],
     
-  providers: [DatabaseService, {provide: HTTP_INTERCEPTORS, useClass: DatabaseService, multi: true}],
+  providers: [DatabaseService, {provide: HTTP_INTERCEPTORS, useClass: DatabaseInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

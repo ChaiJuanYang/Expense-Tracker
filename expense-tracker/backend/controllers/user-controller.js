@@ -65,5 +65,16 @@ module.exports = {
                 message: "Error with Authentication"
             });
         });
+    },
+
+    getUser: async function (req, res) {
+        try {
+            const user = await User.findById(req.userData.userId);
+            console.log("User:", user);
+            return user;
+        }
+        catch (err) {
+            res.status(500).json({ error: err.message });
+        } 
     }
 };

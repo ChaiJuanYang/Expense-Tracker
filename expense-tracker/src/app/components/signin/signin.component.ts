@@ -16,6 +16,7 @@ export class SigninComponent {
   onSignIn() {
     this.dbService.loginUsers(this.email, this.password);
     console.log("Logged in")
+    this.router.navigate(['/dashboard']);
   }
 
   newSignUp() {

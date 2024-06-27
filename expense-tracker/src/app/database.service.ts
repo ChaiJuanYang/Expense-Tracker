@@ -10,6 +10,7 @@ const httpOptions = {
 })
 export class DatabaseService {
   private token : string = "";
+  private name: string = "";
 
   getToken(){
     return this.token;
@@ -27,6 +28,10 @@ export class DatabaseService {
         this.token = res.token;
         console.log(this.token);
     })
+  }
+
+  getUser(){
+    return this.http.get("/user")
   }
 
   addCategory(aCategory: any){

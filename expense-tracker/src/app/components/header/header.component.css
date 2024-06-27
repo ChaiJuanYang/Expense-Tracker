@@ -1,0 +1,29 @@
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease; 
+}
+
+header:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+}
+
+h1 {
+    margin: 0;
+    align-items: left;
+    font-family: 'Poppins', 'Medium 500';
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-link, .nav-links a {
+    font-family: 'Poppins';
+}
