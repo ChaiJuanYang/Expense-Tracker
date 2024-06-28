@@ -27,7 +27,7 @@ import { RouteGuard } from './route-guard';
 const routes: Routes = [  
   {path :"signin", component: SigninComponent},
   {path :"signup", component: SignupComponent},
-  {path :"dashboard", component: DashboardComponent, canActivate:[RouteGuard]},
+  {path :"dashboard", component: DashboardComponent, canActivate: [RouteGuard]},
   {path :"home", component: HomeComponent},
   {path :"user", component: UserComponent},
   {path :"add-category", component: AddCategoryComponent},
@@ -36,7 +36,7 @@ const routes: Routes = [
   {path :"update-category", component: UpdateCategoryComponent},
   {path :"display-category/:categoryId", component: DisplayCategoryComponent},
   {path :"invalid-data", component: InvalidDataComponent},
-  // {path: "", redirectTo: "/list-categories", pathMatch: "full" },
+  {path: "", redirectTo: "/home", pathMatch: "full" },
   {path :"**", component: PageNotFoundComponent},
 
   ]
@@ -68,7 +68,7 @@ const routes: Routes = [
   registrationStrategy: 'registerWhenStable:30000'
 })],
     
-  providers: [DatabaseService, {provide: HTTP_INTERCEPTORS, useClass: DatabaseInterceptor, multi: true} , RouteGuard],
+  providers: [DatabaseService, {provide: HTTP_INTERCEPTORS, useClass: DatabaseInterceptor, multi: true},RouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

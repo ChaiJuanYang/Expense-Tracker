@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject, catchError, throwError } from 'rxjs';
+import { Router } from '@angular/router';
 const httpOptions = {
   headers : new HttpHeaders({"Content-Type" : "application/json"}),
 };
@@ -10,15 +11,14 @@ const httpOptions = {
 })
 export class DatabaseService {
  
-
   getAuthStatusListener() {
     throw new Error('Method not implemented.');
   }
   private token : string = "";
   private authenticatedSub = new Subject<boolean>();
   private isAuthenticated: boolean = false;
-  
-    getIsAuthenticated() {
+
+  getIsAuthenticated() {
     return this.isAuthenticated;
   }
   getAuthenticatedSub(){
@@ -27,7 +27,7 @@ export class DatabaseService {
   getToken(){
     return this.token;
   }
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router:Router) { }
 
   addUsers(aUser: any){
     return this.http.post("/signup", aUser, httpOptions);
@@ -41,8 +41,18 @@ export class DatabaseService {
         console.log(this.token);
         if(this.token){
           this.authenticatedSub.next(true);
+          this.isAuthenticated = true;
+          this.router.navigate(['/dashboard']);
         }
     })
+  }
+
+  logoutUser(){
+    this.token = "";
+    this.isAuthenticated = false;
+    this.authenticatedSub.next(false);
+    this.router.navigate(['/signin']);
+
   }
 
   getUser(){
