@@ -21,11 +21,14 @@ import { DatabaseInterceptor } from './database-interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UserComponent } from './components/user/user.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { RouteGuard } from './route-guard';
 
 const routes: Routes = [  
   {path :"signin", component: SigninComponent},
   {path :"signup", component: SignupComponent},
-  {path :"dashboard", component: DashboardComponent},
+  {path :"dashboard", component: DashboardComponent, canActivate:[RouteGuard]},
+  {path :"home", component: HomeComponent},
   {path :"user", component: UserComponent},
   {path :"add-category", component: AddCategoryComponent},
   {path :"list-categories", component: ListCategoriesComponent},
@@ -33,7 +36,7 @@ const routes: Routes = [
   {path :"update-category", component: UpdateCategoryComponent},
   {path :"display-category/:categoryId", component: DisplayCategoryComponent},
   {path :"invalid-data", component: InvalidDataComponent},
-  {path: "", redirectTo: "/list-categories", pathMatch: "full" },
+  // {path: "", redirectTo: "/list-categories", pathMatch: "full" },
   {path :"**", component: PageNotFoundComponent},
 
   ]
@@ -54,7 +57,8 @@ const routes: Routes = [
     SignupComponent,
     UserComponent,
     DashboardComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes, { useHash: true }), HttpClientModule, FormsModule, ServiceWorkerModule.register('ngsw-worker.js', {
@@ -64,7 +68,7 @@ const routes: Routes = [
   registrationStrategy: 'registerWhenStable:30000'
 })],
     
-  providers: [DatabaseService, {provide: HTTP_INTERCEPTORS, useClass: DatabaseInterceptor, multi: true}],
+  providers: [DatabaseService, {provide: HTTP_INTERCEPTORS, useClass: DatabaseInterceptor, multi: true} , RouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

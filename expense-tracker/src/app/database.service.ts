@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHandler, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, Subject, catchError, throwError } from 'rxjs';
 const httpOptions = {
   headers : new HttpHeaders({"Content-Type" : "application/json"}),
 };
@@ -9,9 +9,21 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DatabaseService {
-  private token : string = "";
-  private name: string = "";
+ 
 
+  getAuthStatusListener() {
+    throw new Error('Method not implemented.');
+  }
+  private token : string = "";
+  private authenticatedSub = new Subject<boolean>();
+  private isAuthenticated: boolean = false;
+  
+    getIsAuthenticated() {
+    return this.isAuthenticated;
+  }
+  getAuthenticatedSub(){
+    return this.authenticatedSub.asObservable();
+  }
   getToken(){
     return this.token;
   }
@@ -27,6 +39,9 @@ export class DatabaseService {
     .subscribe(res => {
         this.token = res.token;
         console.log(this.token);
+        if(this.token){
+          this.authenticatedSub.next(true);
+        }
     })
   }
 

@@ -15,15 +15,28 @@ header:hover {
 
 h1 {
     margin: 0;
-    align-items: left;
     font-family: 'Poppins', 'Medium 500';
 }
 
 .nav-links {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    gap: 20px;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.nav-links .container {
     display: flex;
     gap: 10px;
 }
 
 .btn-link, .nav-links a {
     font-family: 'Poppins';
+    text-decoration: none; 
+    color: #000; /* Default text color */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.btn-link:hover, .nav-links a:hover {
+    color: #046530; /* Change text color on hover */
 }

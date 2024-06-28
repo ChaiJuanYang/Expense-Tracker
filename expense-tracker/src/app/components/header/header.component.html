@@ -1,6 +1,12 @@
 <header>
     <h1>Expense Tracker</h1>
-    <button class="btn btn-link" (click)="toLogIn()">Log In</button> 
-    <button class="btn btn-link" (click)="toSignUp()">Sign Up</button> 
-    <a routerLink="/add-category" style="margin-right: 10px;">Add Category</a> 
+    <div class="nav-links">
+        <a routerLink="/home">Main Menu</a>
+        <a routerLink="/add-category">Add Category</a>
+        <div class="container">
+            <button *ngIf="!userAuthenticated" class="btn btn-link" (click)="toLogIn()">Log In</button>
+            <button *ngIf="!userAuthenticated"class="btn btn-link" (click)="toSignUp()">Sign Up</button>
+            <button *ngIf="userAuthenticated"class="btn btn-link" (click)="toLogOut()">Log Out</button>
+        </div>
+    </div>
 </header>
