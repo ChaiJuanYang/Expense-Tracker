@@ -1,0 +1,20 @@
+<div>
+    <h1>Add Expense</h1>
+    <div class ="card">
+        <div class="form">
+            <label for="Amount">Amount</label>
+            <input type="number" [(ngModel)]="amount" name="amount" placeholder="Amount">
+            <label for="Date">Date</label>
+            <input type="date" [(ngModel)]="date" name="name" placeholder="Date">
+            <label for="Category">Category</label>
+            <select [(ngModel)]="category" name="Category">
+                <option value="" disabled selected>Expense Category</option>
+                <option *ngFor="let category of categories" [value]="category">{{ category }}</option> 
+            </select>
+            <label for="description">Description</label>
+            <input type="text" [(ngModel)]="description" name="description" placeholder="Description">
+            <button type="button" (click)="submitExpense()">Submit</button>
+        </div>
+    </div>
+</div>
+

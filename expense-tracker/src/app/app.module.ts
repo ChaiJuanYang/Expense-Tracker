@@ -23,11 +23,13 @@ import { UserComponent } from './components/user/user.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { RouteGuard } from './route-guard';
+import { DashboardRoutingModule } from './dashboard.routing.module';
 
 const routes: Routes = [  
   {path :"signin", component: SigninComponent},
   {path :"signup", component: SignupComponent},
-  {path :"dashboard", component: DashboardComponent, canActivate: [RouteGuard]},
+  // {path :"dashboard", component: DashboardComponent, canActivate: [RouteGuard]},
+  {path: "dashboard", component: DashboardComponent},
   {path :"home", component: HomeComponent},
   {path :"user", component: UserComponent},
   {path :"add-category", component: AddCategoryComponent},
@@ -61,7 +63,7 @@ const routes: Routes = [
     HomeComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(routes, { useHash: true }), HttpClientModule, FormsModule, ServiceWorkerModule.register('ngsw-worker.js', {
+    BrowserModule, RouterModule.forRoot(routes, { useHash: true }), HttpClientModule, FormsModule,DashboardRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', {
   enabled: !isDevMode(),
   // Register the ServiceWorker as soon as the application is stable
   // or after 30 seconds (whichever comes first).

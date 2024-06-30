@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 95vw;
+    min-width: 600px;
+    display: flex;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    border-radius: 15px;
+}
+.user-card{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    height: auto;
+}
+
+.navigation-card{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    height: 49%;
+}
+.main-content-card{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    height :100%;
+}
+.circle-image {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Ensure the height and width are equal for a perfect circle */
+    border-radius: 50%;
+    object-fit: cover; /* Ensures the image covers the circle without distortion */
+    padding: 5px; /* Optional: add padding around the image */
+    /* margin-bottom: 5%; */
+}
+
+.navigation-card a {
+    display: block;
+    text-decoration: none;
+    color :#000;
+    list-style-type: none;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #046530;
+}

@@ -1,27 +1,35 @@
-<h1>Welcome {{username}} !</h1>
-<div class="container">
-    <div class = "container">
-        <app-user></app-user>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- User Card -->
+            <div class="col-lg-3">
+                <div class="user-card">
+                    <img src="assets/icon.png" alt="User Avatar" class = "circle-image">
+                    <h4>User</h4>
+                    <p>user&#64;gmail.com</p> 
+                    <!-- placeholder name and email  -->
+                </div>
+                <div class="navigation-card">
+                    <div class="nav-links">
+                        <a routerLink="/add-expense">Add Expense</a>
+                        <a routerLink="/edit-expense">Edit Expense</a>
+                        <a routerLink="/remove-expense">Remove Expense</a>
+                        <a routerLink="/view-expense">View Expense</a>
+                        <a routerLink="/budget-planner">Budget Planner</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Card (Router Outlet) -->
+            <div class="col-lg-9">
+                <div class="main-content-card">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-            <h4>Income</h4>
-            </div>
-            <div class="card-body">
-            <!-- <h4 class="text-success">₹ {{totalIncome}}</h4> -->
-            </div>
-        </div>
-        </div>
-        <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-            <h4>Expense</h4>
-            </div>
-            <div class="card-body">
-            <!-- <h4 class="text-danger">₹ {{totalExpense}}</h4> -->
-            </div>
-        </div>
-        </div>
-  </div>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+</body>
