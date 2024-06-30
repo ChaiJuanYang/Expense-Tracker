@@ -35,46 +35,38 @@ module.exports = {
     },
 
     loginUser: async function (req, res) {
-        let userFound;
-        User.findOne({ email: req.body.email }).then(user => {
+        try {
+            const user = await User.findOne({ email: req.body.email });
             if (!user) {
-                return res.status(401).json({
-                    message: "User Not Found"
-                });
+                return res.status(401).json({ message: "User Not Found" });
             }
-            userFound = user;
-            return bcrypt.compare(req.body.password, user.password);
-        })
-        .then(result => {
-            if (!result) {
-                return res.status(401).json({
-                    message: "Incorrect Password"
-                });
+    
+            const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
+            if (!isPasswordValid) {
+                return res.status(401).json({ message: "Incorrect Password" });
             }
+    
             const token = jwt.sign(
-                { email: userFound.email, userId: userFound._id },
+                { email: user.email, userId: user._id },
                 "secret_string",
                 { expiresIn: "1h" }
             ); // expires in 1 hour
+    
+            // Omitting the password field before sending the user object
+            const userWithoutPassword = {
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+                gender: user.gender,
+                contactNumber: user.contactNumber
+            };
+    
             return res.status(200).json({
                 token: token,
+                user: userWithoutPassword
             });
-        })
-        .catch(err => {
-            return res.status(401).json({
-                message: "Error with Authentication"
-            });
-        });
-    },
-
-    getUser: async function (req, res) {
-        try {
-            const user = await User.findById(req.userData.userId);
-            console.log("User:", user);
-            return user;
+        } catch (err) {
+            return res.status(500).json({ message: "Error with Authentication", error: err.message });
         }
-        catch (err) {
-            res.status(500).json({ error: err.message });
-        } 
     }
 };

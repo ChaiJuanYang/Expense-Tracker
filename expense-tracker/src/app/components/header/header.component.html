@@ -1,7 +1,8 @@
 <header>
     <h1>Expense Tracker</h1>
     <div class="nav-links">
-        <a routerLink="/home">Main Menu</a>
+        <a *ngIf="!userAuthenticated"routerLink="/home">Main Menu</a>
+        <a *ngIf="userAuthenticated"routerLink="/dashboard">Dashboard</a>
         <a routerLink="/add-category">Add Category</a>
         <div class="container">
             <button *ngIf="!userAuthenticated" class="btn btn-link" (click)="toLogIn()">Log In</button>

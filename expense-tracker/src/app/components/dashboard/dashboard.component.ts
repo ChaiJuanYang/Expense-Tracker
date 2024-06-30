@@ -6,14 +6,21 @@ import { DatabaseService } from 'src/app/database.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent  implements OnInit{
-    constructor( private dbService : DatabaseService) { }
-    username : string = "";
-    ngOnInit(): void {
-      this.getUsername();
-    }
-  
-    getUsername() {
-      
-    }
+export class DashboardComponent implements OnInit {
+  username: string = "";
+  email: string = "";
+  constructor(private dbService: DatabaseService) { }
+
+  ngOnInit(): void {
+    this.getUsername();
+  }
+
+  getUsername() {
+    this.dbService.getUser().subscribe(user => {
+      if (user) {
+        this.username = user.name;
+        this.email = user.email;
+      }
+    });
+  }
 }

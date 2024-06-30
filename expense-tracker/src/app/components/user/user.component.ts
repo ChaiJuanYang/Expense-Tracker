@@ -12,19 +12,6 @@ export class UserComponent implements OnInit{
     email : string = "";
     constructor(private dbService : DatabaseService) { }
     ngOnInit(): void {
-      this.getUser();
-    }
-
-    getUser() {
-      console.log("Getting user");
-      this.dbService.getUser().subscribe({
-        next: user => {
-          this.username = this.user.name;
-          this.email = this.user.email;
-        },
-        error: err => {
-          console.error('Error fetching user:', err);
-        }
-      });
+      // this.getUser();
     }
 }

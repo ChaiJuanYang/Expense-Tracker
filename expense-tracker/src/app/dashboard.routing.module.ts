@@ -5,6 +5,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AddExpenseComponent } from './components/add-expense/add-expense.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { DatabaseService } from './database.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
     {path: '',
@@ -17,7 +19,8 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [AddExpenseComponent],
-    imports: [RouterModule.forChild(routes), FormsModule, BrowserModule],
-    exports: [RouterModule]
+    imports: [RouterModule.forChild(routes), FormsModule, HttpClientModule, BrowserModule],
+    exports: [RouterModule],    
+    providers: [DatabaseService]
   })
   export class DashboardRoutingModule { }
