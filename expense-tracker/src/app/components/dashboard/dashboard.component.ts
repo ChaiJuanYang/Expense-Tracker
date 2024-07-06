@@ -7,8 +7,8 @@ import { DatabaseService } from 'src/app/database.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  username: string = "";
-  email: string = "";
+  username: string = "Name";
+  email: string = "Email";
   constructor(private dbService: DatabaseService) { }
 
   ngOnInit(): void {

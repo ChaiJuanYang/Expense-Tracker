@@ -63,7 +63,8 @@ module.exports = {
     
             return res.status(200).json({
                 token: token,
-                user: userWithoutPassword
+                user: userWithoutPassword,
+                expiresIn: 3600
             });
         } catch (err) {
             return res.status(500).json({ message: "Error with Authentication", error: err.message });

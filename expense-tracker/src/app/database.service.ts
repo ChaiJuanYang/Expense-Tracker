@@ -18,6 +18,7 @@ export class DatabaseService {
   private authenticatedSub = new Subject<boolean>();
   private userSubject = new BehaviorSubject<any>(null);
   private isAuthenticated: boolean = false;
+  private logoutTimer: any;
 
   getIsAuthenticated() {
     return this.isAuthenticated;
@@ -40,7 +41,7 @@ export class DatabaseService {
 
   loginUsers(email: any, password: any){
     const authData = {email: email, password: password}
-    return this.http.post<{token:string , user:any}>("/signin",authData , httpOptions)
+    return this.http.post<{token:string , user:any, expiresIn:number}>("/signin",authData , httpOptions)
     .subscribe(res => {
         this.token = res.token;
         this.userSubject.next(res.user); // Update the user subject
@@ -50,6 +51,7 @@ export class DatabaseService {
           this.authenticatedSub.next(true);
           this.isAuthenticated = true;
           this.router.navigate(['/dashboard']);
+          this.logoutTimer = setTimeout(() => {this.logoutUser()}, res.expiresIn * 1000); // convert seconds to milliseconds
         }
     })
   }
@@ -60,7 +62,7 @@ export class DatabaseService {
     this.authenticatedSub.next(false);
     this.userSubject.next(null);
     this.router.navigate(['/signin']);
-
+    clearTimeout(this.logoutTimer);
   }
 
 

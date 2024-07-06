@@ -36,6 +36,6 @@ export class HeaderComponent implements OnInit{
   }
 
   toLogOut() {
-    
+    this.dbService.logoutUser();
   }
 }
