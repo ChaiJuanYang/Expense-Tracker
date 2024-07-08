@@ -13,6 +13,7 @@ const Category = require("./backend/models/event-category");
 const operation = require("./backend/models/operation");
 const stats = require("./backend/controllers/stats");
 const userCont = require("./backend/controllers/user-controller");
+const expenseCont = require("./backend/controllers/expense-controller");
 const jwt = require("jsonwebtoken");
 app.use(express.static(path.join(__dirname,"dist/ema_angular")));
 app.use(express.static('public'));
@@ -63,6 +64,8 @@ app.use((req, res, next) => {
 app.post("/signup", userCont.createUser);
 
 app.post("/signin", userCont.loginUser);
+
+app.post("/add-expense", expenseCont.addExpense);
 
 app.post("/add-category", categoryCont.createCategory);
 

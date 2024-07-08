@@ -1,48 +1,60 @@
 .card {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 20px;
-    width: 100%;
-    border: none;
-    box-sizing: border-box;
-  }
-  
-  h1 {
-    font-size: 24px;
-    text-align: left;
-  }
-  
-  .form {
-    display: fit-content;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-bottom: 5px;
-    font-size: 14px;
-  }
-  
-  input, select {
-    padding: 7px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 12px;
-    width: 100%;
-    border-radius: 20px;
-  }
-  
-  input::placeholder, select::placeholder {
-    color: #999;
-  }
-  
-  button {
-    width: 100%;
-    padding: 5px;
-    border: 0px solid #ccc;
-    border-radius: 20px;
-    margin-top: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  border: none;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex: 1 1 auto; /* Allow the card to grow and shrink as needed */
+  max-height: 100%; /* Ensure it doesn't exceed the parent container's height */
 }
+
+h1 {
+  font-size: 24px;
+  text-align: left;
+}
+
+.form {
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 100%; /* Ensure the form doesn't exceed the container's height */
+  padding-left: 20px;
+  padding-right: 20px; /* To prevent the content from being hidden by the scrollbar */
+  padding-top: 10px;
+  padding-bottom : 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+input, select {
+  padding: 7px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+  width: 100%;
+  border-radius: 20px;
+}
+
+input::placeholder, select::placeholder {
+  color: #999;
+}
+
+button {
+  width: 100%;
+  padding: 5px;
+  border: 0px solid #ccc;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
 button:hover {
-    background-color: #cdcdcd;
+  background-color: #cdcdcd;
 }

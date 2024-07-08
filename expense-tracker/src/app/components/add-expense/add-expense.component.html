@@ -1,6 +1,5 @@
 <div>
     <h1>Add Expense</h1>
-    <div class ="card">
         <div class="form">
             <label for="Amount">Amount</label>
             <input type="number" [(ngModel)]="amount" name="amount" placeholder="Amount">
@@ -13,8 +12,12 @@
             </select>
             <label for="description">Description</label>
             <input type="text" [(ngModel)]="description" name="description" placeholder="Description">
+            <label for="paymentMethod">Payment Method</label>
+            <select [(ngModel)]="paymentMethod" name="Payment Method">
+                <option value="" disabled selected>Payment Method</option>
+                <option *ngFor="let method of paymentMethods" [value]="method">{{ method }}</option> 
+            </select>
             <button type="button" (click)="submitExpense()">Submit</button>
-        </div>
     </div>
 </div>
 

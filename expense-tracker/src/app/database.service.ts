@@ -65,6 +65,9 @@ export class DatabaseService {
     clearTimeout(this.logoutTimer);
   }
 
+  addExpense(aExpense: any){
+    return this.http.post("/add-expense", aExpense, httpOptions)
+  }
 
   addCategory(aCategory: any){
     return this.http.post("/add-category", aCategory, httpOptions)
