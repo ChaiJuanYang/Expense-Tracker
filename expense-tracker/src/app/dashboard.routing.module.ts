@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { DatabaseService } from './database.service';
 import { HttpClientModule } from '@angular/common/http';
+// import { ViewExpensesComponent } from './components/view-expenses/view-expenses.component';
 
 const routes: Routes = [
     {path: '',
@@ -14,6 +15,7 @@ const routes: Routes = [
     children: [
         {path: 'home', component: HomeComponent},
         {path: 'add-expense', component: AddExpenseComponent},
+        // {path: 'view-expenses', component: ViewExpensesComponent}
     ]}
 ];
 

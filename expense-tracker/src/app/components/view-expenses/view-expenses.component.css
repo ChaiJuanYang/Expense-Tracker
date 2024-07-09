@@ -1,0 +1,82 @@
+.view-expenses {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.expenses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #747474;
+}
+
+.expense-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.expense-card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.expense-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.expense-date-amount {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.expense-date,
+.expense-amount {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.expense-date p,
+.expense-amount p {
+    margin: 0;
+    font-size: 14px;
+    color: #888;
+}
+
+.expense-date h2,
+.expense-amount h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.expense-category-description {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+    flex: 1;
+}
+
+.expense-category {
+    font-weight: bold;
+    margin: 0;
+}
+
+.expense-description {
+    margin: 0;
+}

@@ -1,0 +1,27 @@
+ <div class="header">
+        <h1>View Expenses</h1>
+    </div>
+    <div class="view-expenses">
+    <div class="expenses-list">
+        <div class="expense-card" *ngFor="let expense of expenses">
+            <div class="expense-card-body">
+                <div class="expense-details">
+                    <div class="expense-date-amount">
+                        <div class="expense-date">
+                            <p>Date</p>
+                            <h2>{{ expense.date | date:'d MMMM y' }}</h2>
+                        </div>
+                        <div class="expense-amount">
+                            <p>Amount</p>
+                            <h2>$ {{ expense.amount }}</h2>
+                        </div>
+                    </div>
+                    <div class="expense-category-description">
+                        <p class="expense-category">Category : {{ expense.category }}</p>
+                        <p class="expense-description">{{ expense.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

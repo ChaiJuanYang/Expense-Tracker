@@ -32,19 +32,6 @@ app.use(express.json());
 async function connect() {
   try {
     await mongoose.connect(url);
-    // let existingOperation = await Operation.findOne();
-    // const categoryCount = await Category.countDocuments();
-  
-    // let newOperation = await Operation.findOneAndUpdate(
-      // {},
-      // { category_size: categoryCount },
-      // { new: true }
-    // );
-    // console.log(newOperation);
-    // if (!existingOperation) {
-      // const operation = new Operation();
-      // await operation.save();
-  // }
     server.listen(PORT_NUMBER, () => {
       console.log(`Server listening on port ${PORT_NUMBER}`);
     });
