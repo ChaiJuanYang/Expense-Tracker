@@ -7,7 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { DatabaseService } from './database.service';
 import { HttpClientModule } from '@angular/common/http';
-// import { ViewExpensesComponent } from './components/view-expenses/view-expenses.component';
+import { ViewExpensesComponent } from './components/view-expenses/view-expenses.component';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
     {path: '',
@@ -15,13 +16,13 @@ const routes: Routes = [
     children: [
         {path: 'home', component: HomeComponent},
         {path: 'add-expense', component: AddExpenseComponent},
-        // {path: 'view-expenses', component: ViewExpensesComponent}
+        {path: 'view-expenses', component: ViewExpensesComponent}
     ]}
 ];
 
 @NgModule({
-    declarations: [AddExpenseComponent],
-    imports: [RouterModule.forChild(routes), FormsModule, HttpClientModule, BrowserModule],
+    declarations: [AddExpenseComponent, ViewExpensesComponent],
+    imports: [RouterModule.forChild(routes), FormsModule, HttpClientModule, BrowserModule, CommonModule],
     exports: [RouterModule],    
     providers: [DatabaseService]
   })

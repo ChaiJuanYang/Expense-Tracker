@@ -33,6 +33,7 @@ export class DatabaseService {
   getUser(){
     return this.userSubject.asObservable();
   }
+  
   constructor(private http: HttpClient, private router:Router) { }
 
   addUsers(aUser: any){
@@ -67,6 +68,10 @@ export class DatabaseService {
 
   addExpense(aExpense: any){
     return this.http.post("/add-expense", aExpense, httpOptions)
+  }
+
+  getExpenses(userId: string){
+    return this.http.post("/view-expenses",{userId} , httpOptions)
   }
 
   addCategory(aCategory: any){

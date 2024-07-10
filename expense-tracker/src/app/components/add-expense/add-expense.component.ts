@@ -29,11 +29,11 @@ export class AddExpenseComponent implements OnInit{
       date: this.date,
       category: this.category,
       description: this.description,
-      paymentMethods: this.paymentMethod
+      paymentMethod: this.paymentMethod
     };
     console.log(expenseObj);
     this.dbService.addExpense(expenseObj).subscribe({
-      next: (result) => {this.router.navigate(["/dashboard"]);
+      next: (result) => {this.router.navigate(["/view-expenses"]);
       },
       error: (error) => {this.router.navigate(["/invalid-data"]);
       }

@@ -24,6 +24,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { RouteGuard } from './route-guard';
 import { DashboardRoutingModule } from './dashboard.routing.module';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [  
   {path :"signin", component: SigninComponent},
@@ -63,7 +64,7 @@ const routes: Routes = [
     HomeComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(routes, { useHash: true }), HttpClientModule, FormsModule,DashboardRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', {
+    BrowserModule, RouterModule.forRoot(routes, { useHash: true }), HttpClientModule, CommonModule,FormsModule,DashboardRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', {
   enabled: !isDevMode(),
   // Register the ServiceWorker as soon as the application is stable
   // or after 30 seconds (whichever comes first).

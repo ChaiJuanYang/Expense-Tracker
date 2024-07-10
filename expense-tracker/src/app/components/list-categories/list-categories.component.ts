@@ -18,6 +18,7 @@ export class ListCategoriesComponent {
     this.dbService.getCategory().subscribe({
       next: (data: any) => {
         this.categoriesDb = data;
+        console.log(this.categoriesDb)
       },
       error: (err) => { console.log(err)}
     })

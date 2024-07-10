@@ -20,5 +20,16 @@ module.exports = {
         }
     },
 
-
-};
+    getExpense: async function (req, res) {
+        const userId = req.body.userId;
+        console.log("User ID: ", userId);
+        try {
+            const expenses = await Expense.find({ userId: req.body.userId });
+            // res.json({ expenses: expenses });
+            console.log("Expenses: ", expenses);
+            res.status(200).json( expenses );
+        } catch (err) { 
+            res.status(500).json({ error: err.message });
+        }
+    }
+}

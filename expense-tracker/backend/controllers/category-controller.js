@@ -35,6 +35,7 @@ module.exports = {
 
 		let categories = await Category.find({})
 		// .populate("eventsList");
+		console.log(categories);
 		res.status(200).json(categories);
 	},
 
