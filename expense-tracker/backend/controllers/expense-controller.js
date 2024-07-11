@@ -31,5 +31,15 @@ module.exports = {
         } catch (err) { 
             res.status(500).json({ error: err.message });
         }
+    },
+
+    deleteExpense: async function (req, res) {
+        const expenseId = req.params.id;
+        try {
+            const result = await Expense.deleteOne({ _id: expenseId });
+            res.status(200).json({ message: "Expense deleted!", result: result });
+        } catch (err) {
+            res.status(500).json({ error: err.message });
+        }
     }
 }

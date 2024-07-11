@@ -56,6 +56,8 @@ app.post("/add-expense", expenseCont.addExpense);
 
 app.post("/view-expenses", expenseCont.getExpense);
 
+app.delete("/delete-expense/:id", expenseCont.deleteExpense);
+
 app.post("/add-category", categoryCont.createCategory);
 
 app.get("/list-categories", categoryCont.getAllCategory);

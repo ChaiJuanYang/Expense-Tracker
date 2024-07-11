@@ -73,6 +73,10 @@ export class DatabaseService {
   getExpenses(userId: string){
     return this.http.post("/view-expenses",{userId} , httpOptions)
   }
+  
+  deleteExpense(id : string){
+    return this.http.delete("/delete-expense/" + id, httpOptions)
+  }
 
   addCategory(aCategory: any){
     return this.http.post("/add-category", aCategory, httpOptions)
