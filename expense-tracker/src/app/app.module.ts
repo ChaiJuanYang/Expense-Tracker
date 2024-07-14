@@ -25,6 +25,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RouteGuard } from './route-guard';
 import { DashboardRoutingModule } from './dashboard.routing.module';
 import { CommonModule } from '@angular/common';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [  
   {path :"signin", component: SigninComponent},
@@ -69,7 +70,7 @@ const routes: Routes = [
   // Register the ServiceWorker as soon as the application is stable
   // or after 30 seconds (whichever comes first).
   registrationStrategy: 'registerWhenStable:30000'
-})],
+}), NoopAnimationsModule],
     
   providers: [DatabaseService, {provide: HTTP_INTERCEPTORS, useClass: DatabaseInterceptor, multi: true},RouteGuard],
   bootstrap: [AppComponent]

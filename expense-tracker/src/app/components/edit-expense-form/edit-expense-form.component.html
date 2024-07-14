@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Edit Expense</h1>
+<div mat-dialog-content>
+  <label for="Amount">Amount</label>
+  <input type="number" [(ngModel)]="data.amount" name="amount" placeholder="Amount">
+  <label for="Date">Date</label>
+  <input type="date" [(ngModel)]="data.date" name="name" placeholder="Date">
+  <label for="Category">Category</label>
+  <select [(ngModel)]="data.category" name="Category">
+      <option value="" disabled selected>Expense Category</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option> 
+  </select>
+  <label for="description">Description</label>
+  <input type="text" [(ngModel)]="data.description" name="description" placeholder="Description">
+  <label for="paymentMethod">Payment Method</label>
+  <select [(ngModel)]="data.paymentMethod" name="Payment Method">
+      <option value="" disabled selected>Payment Method</option>
+      <option *ngFor="let method of paymentMethods" [value]="method">{{ method }}</option> 
+  </select>
+</div>
+<div mat-dialog-actions>
+  <button button (click)="onCancel()">Cancel</button>
+  <button button (click)="onSave()">Save</button>
+</div>

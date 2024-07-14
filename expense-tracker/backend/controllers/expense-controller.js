@@ -41,5 +41,24 @@ module.exports = {
         } catch (err) {
             res.status(500).json({ error: err.message });
         }
+    },
+
+    updateExpense: async function (req, res) {
+        const id = req.body._id;
+        console.log("Expense ID: ", id);
+            try {
+                const result = await Expense.findOneAndUpdate({ _id: id }, {
+                    $set: {
+                        date: req.body.date,
+                        amount: req.body.amount,
+                        category: req.body.category,
+                        description: req.body.description,
+                        paymentMethod: req.body.paymentMethod
+                    }
+                });
+                res.status(200).json({ message: "Expense updated!", result: result });
+            } catch (err) {
+                res.status(500).json({ error: err.message });
+        }
     }
-}
+};

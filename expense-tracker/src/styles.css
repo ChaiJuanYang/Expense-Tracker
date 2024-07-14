@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.custom-dialog-container .mat-dialog-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure it takes the full viewport height */
+    min-width: 100vw;  /* Ensure it takes the full viewport width */
+  }
+  

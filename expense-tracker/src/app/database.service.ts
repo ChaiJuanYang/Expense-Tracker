@@ -78,6 +78,10 @@ export class DatabaseService {
     return this.http.delete("/delete-expense/" + id, httpOptions)
   }
 
+  updateExpense(expenseObj: any){
+    return this.http.put("/edit-expense",  expenseObj, httpOptions)
+  }
+
   addCategory(aCategory: any){
     return this.http.post("/add-category", aCategory, httpOptions)
   }

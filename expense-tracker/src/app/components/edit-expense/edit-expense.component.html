@@ -1,1 +1,38 @@
-<p>edit-expense works!</p>
+<div class="header">
+    <h1>Edit Expense</h1>
+    <p>Select Expense to be Updated</p>
+</div>
+<div class="view-expenses">
+    <div class="expenses-list">
+        <div class="expense-card" *ngFor="let expense of expenses" (click)="selectExpense(expense)">
+            <div class="expense-card-body">
+                <div class="expense-details">
+                    <div class="expense-date-amount">
+                        <div class="expense-date">
+                            <p>Date</p>
+                            <h2>{{ expense.date | date:'mediumDate'}}</h2>
+                        </div>
+                        <div class="expense-amount">
+                            <p>Amount</p>
+                            <h2>$ {{ expense.amount }}</h2>
+                        </div>
+                    </div>
+                    <div class="expense-cat-desc-pay">
+                        <div class="expense-category-description">
+                            <div class="expense-category">
+                                <p>Category: {{ expense.category }}</p>
+                            </div>
+                            <div class="expense-payment">
+                                <p>Payment Method: {{ expense.paymentMethod }}</p>
+                            </div>
+                        </div>
+                        <div class="expense-description">
+                            <p>Description</p>
+                            <h2>{{ expense.description }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

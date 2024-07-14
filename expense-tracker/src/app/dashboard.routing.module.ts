@@ -11,6 +11,12 @@ import { ViewExpensesComponent } from './components/view-expenses/view-expenses.
 import { CommonModule } from '@angular/common';
 import { EditExpenseComponent } from './components/edit-expense/edit-expense.component';
 import { RemoveExpenseComponent } from './components/remove-expense/remove-expense.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { EditExpenseFormComponent } from './components/edit-expense-form/edit-expense-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
     {path: '',
@@ -25,8 +31,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    declarations: [AddExpenseComponent, ViewExpensesComponent, EditExpenseComponent, RemoveExpenseComponent],
-    imports: [RouterModule.forChild(routes), FormsModule, HttpClientModule, BrowserModule, CommonModule],
+    declarations: [AddExpenseComponent, ViewExpensesComponent, EditExpenseComponent, RemoveExpenseComponent, EditExpenseFormComponent],
+    imports: [RouterModule.forChild(routes), FormsModule, HttpClientModule, BrowserModule, CommonModule,
+         MatDialogModule, MatButtonModule, MatInputModule, MatFormFieldModule, BrowserAnimationsModule],
     exports: [RouterModule],    
     providers: [DatabaseService]
   })
