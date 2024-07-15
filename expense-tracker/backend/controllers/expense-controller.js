@@ -24,11 +24,11 @@ module.exports = {
         const userId = req.body.userId;
         console.log("User ID: ", userId);
         try {
-            const expenses = await Expense.find({ userId: req.body.userId });
-            // res.json({ expenses: expenses });
+            // Find the expenses and sort them by date
+            const expenses = await Expense.find({ userId: req.body.userId }).sort({ date: -1 }); // -1 for descending order, 1 for ascending order
             console.log("Expenses: ", expenses);
-            res.status(200).json( expenses );
-        } catch (err) { 
+            res.status(200).json(expenses);
+        } catch (err) {
             res.status(500).json({ error: err.message });
         }
     },
