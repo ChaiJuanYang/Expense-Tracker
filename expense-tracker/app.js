@@ -15,6 +15,7 @@ const stats = require("./backend/controllers/stats");
 const userCont = require("./backend/controllers/user-controller");
 const expenseCont = require("./backend/controllers/expense-controller");
 const jwt = require("jsonwebtoken");
+const expense = require("./backend/models/expense");
 app.use(express.static(path.join(__dirname,"dist/ema_angular")));
 app.use(express.static('public'));
 const PORT_NUMBER = 8081;
@@ -59,6 +60,8 @@ app.post("/view-expenses", expenseCont.getExpense);
 app.delete("/delete-expense/:id", expenseCont.deleteExpense);
 
 app.put("/edit-expense", expenseCont.updateExpense);
+
+app.post("/dashboard", expenseCont.displayExpense);
 
 app.post("/add-category", categoryCont.createCategory);
 

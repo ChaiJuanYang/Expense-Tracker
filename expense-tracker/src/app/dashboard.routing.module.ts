@@ -17,11 +17,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { EditExpenseFormComponent } from './components/edit-expense-form/edit-expense-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TotalExpenseComponent } from './components/total-expense/total-expense.component';
 
 const routes: Routes = [
     {path: '',
     component: DashboardComponent,
     children: [
+        {path: 'dashboard', component: TotalExpenseComponent},
         {path: 'home', component: HomeComponent},
         {path: 'add-expense', component: AddExpenseComponent},
         {path: 'view-expenses', component: ViewExpensesComponent},
@@ -31,7 +33,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    declarations: [AddExpenseComponent, ViewExpensesComponent, EditExpenseComponent, RemoveExpenseComponent, EditExpenseFormComponent],
+    declarations: [AddExpenseComponent, ViewExpensesComponent, EditExpenseComponent, RemoveExpenseComponent, EditExpenseFormComponent, TotalExpenseComponent],
     imports: [RouterModule.forChild(routes), FormsModule, HttpClientModule, BrowserModule, CommonModule,
          MatDialogModule, MatButtonModule, MatInputModule, MatFormFieldModule, BrowserAnimationsModule],
     exports: [RouterModule],    

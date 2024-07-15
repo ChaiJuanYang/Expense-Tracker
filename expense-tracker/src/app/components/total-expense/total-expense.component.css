@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.card-total {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 15px;
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selectors {
+    display: flex;
+    gap: 10px;
+}
+
+.selectors select {
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.total {
+    margin-top: 10px;
+    text-align: left;
+}
+
+h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 35px;
+    margin: 0;
+}
+
+.card-breakdown {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height : 275px;
+}
+
+.card-breakdown h1 {
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.total h1 {
+    font-size: 55px;
+    color: #333;
+}
+
+.card-breakdown ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.card-breakdown li {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.card-breakdown .expense-breakdown h2, .card-breakdown .expense-breakdown h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
