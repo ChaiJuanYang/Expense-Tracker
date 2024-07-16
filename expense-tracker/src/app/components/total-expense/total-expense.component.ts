@@ -73,7 +73,7 @@ export class TotalExpenseComponent implements OnInit {
       console.log("Retured Object: ", retObj)
       if (retObj.expense && retObj.expense.length > 0) {
         // console.log("Retured Object: ", retObj)
-        this.totalExpense = retObj.expense[0].total;
+        this.totalExpense = retObj.expense[0].total.toFixed(2);
         this.expenseBreakdown = retObj.expensesBreakdown;
         console.log("Expense Breakdown: ", this.expenseBreakdown);
         this.calculatePercentage();
