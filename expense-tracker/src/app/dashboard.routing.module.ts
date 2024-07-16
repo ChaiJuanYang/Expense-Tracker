@@ -24,7 +24,6 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
         {path: 'dashboard', component: TotalExpenseComponent},
-        {path: 'home', component: HomeComponent},
         {path: 'add-expense', component: AddExpenseComponent},
         {path: 'view-expenses', component: ViewExpensesComponent},
         {path: 'edit-expense', component: EditExpenseComponent},

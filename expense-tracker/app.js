@@ -63,8 +63,6 @@ app.put("/edit-expense", expenseCont.updateExpense);
 
 app.post("/dashboard", expenseCont.displayExpense);
 
-// app.post("/dashboard", expenseCont.displayBreakdown);
-
 app.post("/add-category", categoryCont.createCategory);
 
 app.get("/list-categories", categoryCont.getAllCategory);

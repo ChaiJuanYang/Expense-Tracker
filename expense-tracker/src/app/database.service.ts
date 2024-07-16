@@ -85,11 +85,7 @@ export class DatabaseService {
   displayExpense(userId : string, month: number, year: string){
     return this.http.post("/dashboard",{userId, month, year},httpOptions)
   }
-
-  displayExpenseBreakdown(userId : string, month: number, year: string){
-    return this.http.post("/dashboard",{userId, month, year},httpOptions)
-  }
-
+  
   addCategory(aCategory: any){
     return this.http.post("/add-category", aCategory, httpOptions)
   }
