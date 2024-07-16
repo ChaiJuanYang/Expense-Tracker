@@ -14,11 +14,28 @@
             </div>
         </div>
         <div class="total">
-            <h1>$ {{totalExpense}}</h1>
+            <h1>$ {{ totalExpense }}</h1>
         </div>
     </div>
     <div class="card-breakdown">
         <h1>Expense Breakdown</h1>
-        <!-- Add your breakdown content here -->
+        <div class="card-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Expense Category</th>
+                        <th class="align-right">Expense Amount</th>
+                        <th class="align-right">Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of expenseBreakdown">
+                        <td>{{ item.category }}</td>
+                        <td class="align-right">$ {{ item.total }}</td>
+                        <td class="align-right">{{ getPercentage(item.category) }}%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
