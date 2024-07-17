@@ -18,16 +18,17 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { EditExpenseFormComponent } from './components/edit-expense-form/edit-expense-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TotalExpenseComponent } from './components/total-expense/total-expense.component';
+import { RouteGuard } from './route-guard';
 
 const routes: Routes = [
     {path: '',
     component: DashboardComponent,
     children: [
-        {path: 'dashboard', component: TotalExpenseComponent},
-        {path: 'add-expense', component: AddExpenseComponent},
-        {path: 'view-expenses', component: ViewExpensesComponent},
-        {path: 'edit-expense', component: EditExpenseComponent},
-        {path: 'remove-expense', component: RemoveExpenseComponent}
+        {path: 'dashboard', component: TotalExpenseComponent, canActivate: [RouteGuard]},
+        {path: 'add-expense', component: AddExpenseComponent, canActivate: [RouteGuard]},
+        {path: 'view-expenses', component: ViewExpensesComponent, canActivate: [RouteGuard]},
+        {path: 'edit-expense', component: EditExpenseComponent, canActivate: [RouteGuard]},
+        {path: 'remove-expense', component: RemoveExpenseComponent, canActivate: [RouteGuard]}
     ]}
 ];
 
