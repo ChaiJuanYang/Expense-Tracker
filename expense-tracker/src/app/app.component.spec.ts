@@ -12,10 +12,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Expense Tracker'`, () => {
+  it(`should have as title 'ema_angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Expense Tracker');
+    expect(app.title).toEqual('ema_angular');
   });
 
   it('should render title', () => {

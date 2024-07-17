@@ -58,6 +58,7 @@ h1 {
 .total h1 {
     font-size: 55px;
     color: #333;
+    font-weight: 600;
 }
 
 .card-list {

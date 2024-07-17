@@ -1,6 +1,6 @@
 {
-  "name": "Expense Tracker",
-  "short_name": "Expense Tracker",
+  "name": "ema_angular",
+  "short_name": "ema_angular",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

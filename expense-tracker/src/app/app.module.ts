@@ -17,18 +17,40 @@ import { UserComponent } from './components/user/user.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { RouteGuard } from './route-guard';
-import { DashboardRoutingModule } from './dashboard.routing.module';
+// import { DashboardRoutingModule } from './dashboard.routing.module';
 import { CommonModule } from '@angular/common';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { TotalExpenseComponent } from './components/total-expense/total-expense.component';
+import { AddExpenseComponent } from './components/add-expense/add-expense.component';
+import { ViewExpensesComponent } from './components/view-expenses/view-expenses.component';
+import { RemoveExpenseComponent } from './components/remove-expense/remove-expense.component';
+import { EditExpenseComponent } from './components/edit-expense/edit-expense.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { EditExpenseFormComponent } from './components/edit-expense-form/edit-expense-form.component';
+import { BudgetPlannerComponent } from './components/budget-planner/budget-planner.component';
 
 const routes: Routes = [  
   {path :"signin", component: SigninComponent},
   {path :"signup", component: SignupComponent},
-  {path :"dashboard", component: DashboardComponent, canActivate: [RouteGuard]},
+  {path: "", redirectTo: "home", pathMatch: "full" },
+  {path: '',
+    component: DashboardComponent,
+    canActivate: [RouteGuard],
+    children: [
+        {path: 'dashboard', component: TotalExpenseComponent, canActivate: [RouteGuard]},
+        {path: 'add-expense', component: AddExpenseComponent, canActivate: [RouteGuard]},
+        {path: 'view-expenses', component: ViewExpensesComponent, canActivate: [RouteGuard]},
+        {path: 'edit-expense', component: EditExpenseComponent, canActivate: [RouteGuard]},
+        {path: 'remove-expense', component: RemoveExpenseComponent, canActivate: [RouteGuard]},
+        {path: 'budget-planner', component: BudgetPlannerComponent, canActivate: [RouteGuard]}
+    ]},
   {path :"home", component: HomeComponent},
   {path :"user", component: UserComponent},
   {path :"invalid-data", component: InvalidDataComponent},
-  {path: "", redirectTo: "home", pathMatch: "full" },
+  
   {path :"**", component: PageNotFoundComponent},
   ]
 
@@ -43,15 +65,25 @@ const routes: Routes = [
     UserComponent,
     DashboardComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    TotalExpenseComponent,
+    AddExpenseComponent,
+    ViewExpensesComponent,
+    RemoveExpenseComponent,
+    EditExpenseComponent,
+    EditExpenseFormComponent,
+    RemoveExpenseComponent,
+    BudgetPlannerComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(routes, { useHash: true }), HttpClientModule, CommonModule,FormsModule,DashboardRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', {
+    BrowserModule, RouterModule.forRoot(routes, { useHash: true }), HttpClientModule, CommonModule,FormsModule,
+    // DashboardRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
   enabled: !isDevMode(),
   // Register the ServiceWorker as soon as the application is stable
   // or after 30 seconds (whichever comes first).
   registrationStrategy: 'registerWhenStable:30000'
-}), NoopAnimationsModule],
+}), NoopAnimationsModule, MatDialogModule, MatButtonModule, MatInputModule, MatFormFieldModule, BrowserAnimationsModule],
     
   providers: [DatabaseService, {provide: HTTP_INTERCEPTORS, useClass: DatabaseInterceptor, multi: true},RouteGuard],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 <header>
-    <h1 routerLink="/home">Expense Tracker</h1>
+    <h1 *ngIf="!userAuthenticated"routerLink="/home">Expense Tracker</h1>
+    <h1 *ngIf="userAuthenticated"routerLink="/dashboard">Expense Tracker</h1>
     <div class="nav-links">
         <a *ngIf="!userAuthenticated"routerLink="/home">Main Menu</a>
         <a *ngIf="userAuthenticated"routerLink="/dashboard">Dashboard</a>

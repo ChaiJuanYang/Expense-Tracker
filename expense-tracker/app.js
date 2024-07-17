@@ -10,7 +10,7 @@ const url = "mongodb://127.0.0.1:27017/expenses-tracker";
 const userCont = require("./backend/controllers/user-controller");
 const expenseCont = require("./backend/controllers/expense-controller");
 const jwt = require("jsonwebtoken");
-app.use(express.static(path.join(__dirname,"dist/Expense Tracker")));
+app.use(express.static(path.join(__dirname,"dist/expense-tracker")));
 app.use(express.static('public'));
 const PORT_NUMBER = 8081;
 
