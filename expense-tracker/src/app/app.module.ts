@@ -28,7 +28,7 @@ const routes: Routes = [
   {path :"home", component: HomeComponent},
   {path :"user", component: UserComponent},
   {path :"invalid-data", component: InvalidDataComponent},
-  {path: "", redirectTo: "/home", pathMatch: "full" },
+  {path: "", redirectTo: "home", pathMatch: "full" },
   {path :"**", component: PageNotFoundComponent},
   ]
 

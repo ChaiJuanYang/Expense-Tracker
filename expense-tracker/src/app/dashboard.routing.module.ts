@@ -22,7 +22,7 @@ import { RouteGuard } from './route-guard';
 
 const routes: Routes = [
     {path: '',
-    component: DashboardComponent,
+    component: HomeComponent,
     children: [
         {path: 'dashboard', component: TotalExpenseComponent, canActivate: [RouteGuard]},
         {path: 'add-expense', component: AddExpenseComponent, canActivate: [RouteGuard]},
