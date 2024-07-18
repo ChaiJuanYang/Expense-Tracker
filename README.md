@@ -11,6 +11,7 @@ Key Features:
 - View Expenses: Observe a list of expenses over time.
 - View Total Spending : Get a comprehensive view of your spending by month and year.
 - Percentage Breakdown: Understand your spending habits with percentage breakdowns.
+
 Technologies Used ⚙️:
 - Angular: Frontend framework for a dynamic user interface.
 - Node.js: Backend runtime for handling server-side operations.
@@ -18,4 +19,5 @@ Technologies Used ⚙️:
 - HTML & CSS: For structuring and styling the app.
 - Express.js: Backend framework for building robust APIs.
 - Bootstrap: For responsive design and sleek UI components.
+
 Join us today and take the first step towards smarter money management! 🌟💼
